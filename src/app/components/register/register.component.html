@@ -1,7 +1,7 @@
 <form
     class="add-form"
-    #loginForm="ngForm"
-    (ngSubmit)="loginSubmitHandler()"
+    #registerForm="ngForm"
+    (ngSubmit)="registerSubmitHandler()"
 >
     <!-- EMAIL -->
     <div class="form-control">
@@ -38,17 +38,32 @@
             Invalid Password, because length is longer than
             {{ inputPassword.errors?.['appMaxCount'] }} ...
         </div> -->
+
+        <label for="rePass">Confirm Password:</label>
+        <input
+            type="text"
+            id="rePass"
+            name="rePass"
+            placeholder="Confirm Password"
+            ngModel
+            #inputRePass="ngModel"
+        >
+        <!-- RePassword error msg -->
+        <!-- <div *ngIf="inputRePass.errors?.['appMaxCount']">
+            Invalid Password, because length is longer than
+            {{ inputRePass.errors?.['appMaxCount'] }} ...
+        </div> -->
     </div>
     <button
         class="btn"
-        [style]="{backgroundColor:loginForm.invalid?'gray':'green'}"
+        [style]="{backgroundColor:registerForm.invalid?'gray':'green'}"
     >
-        Log In
+        Register
     </button>
     <span>
-        If you don't have a profile, click
+        If you already have a profile, click
         <a href="#">here</a>
     </span>
 </form>
-{{ loginForm.value | json }}
-Invalid Form: {{ loginForm.invalid | json }}
+{{ registerForm.value | json }}
+Invalid Form: {{ registerForm.invalid | json }}
