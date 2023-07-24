@@ -23,5 +23,4 @@ export class LoginComponent {
     // console.log(value);
     form.setValue({ email: '', password: '' })
   }
-
 }

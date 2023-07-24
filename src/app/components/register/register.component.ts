@@ -8,7 +8,6 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterComponent {
 
-  
   @ViewChild('registerForm') registerForm: NgForm | undefined;
 
   registerSubmitHandler(): void {
@@ -22,6 +21,6 @@ export class RegisterComponent {
 
     const value: { email: string; password: string } = form.value;
     // console.log(value);
-    form.setValue({ email: '', password: '',rePass:'' })
+    form.setValue({ email: '', password: '', rePass: '' })
   }
 }

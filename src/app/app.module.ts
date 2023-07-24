@@ -11,6 +11,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './components/register/register.component';
     TaskComponent,
     TasksComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,
