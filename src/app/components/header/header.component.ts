@@ -8,7 +8,23 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   title: string = 'Task Tracker';
 
-  toggleAddTask() {
-    console.log('toggle');
+  sortHandler() {
+    console.log('Sort Tasks');
+  }
+
+  addTaskHandler() {
+    console.log('Add Task');
+  }
+
+  loginHandler() {
+    console.log('Login');
+  }
+
+  registerHandler() {
+    console.log('Register');
+  }
+
+  logoutHandler() {
+    console.log('Logout');
   }
 }

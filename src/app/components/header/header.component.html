@@ -1,27 +1,28 @@
 <header>
-  <h1>{{title}}</h1>
-  <app-button
-      color="steelblue"
-      text="Sort"
-  ></app-button>
-  <app-button
-      color="steelblue"
-      text="Add"
-      (btnClick)="toggleAddTask()"
-  ></app-button>
-  <!-- <app-button
+    <h1>{{title}}</h1>
+    <app-button
+        color="steelblue"
+        text="Sort"
+        (btnClick)="sortHandler()"
+    ></app-button>
+    <app-button
+        color="steelblue"
+        text="Add"
+        (btnClick)="addTaskHandler()"
+    ></app-button>
+    <!-- <app-button
       color="steelblue"
       text="Login"
-      (btnClick)="toggleAddTask()"
+      (btnClick)="loginHandler()"
   ></app-button>
   <app-button
       color="steelblue"
       text="Register"
-      (btnClick)="toggleAddTask()"
+      (btnClick)="registerHandler()"
   ></app-button> -->
-  <app-button
-      color="steelblue"
-      text="Logout"
-      (btnClick)="toggleAddTask()"
-  ></app-button>
+    <app-button
+        color="steelblue"
+        text="Logout"
+        (btnClick)="logoutHandler()"
+    ></app-button>
 </header>
