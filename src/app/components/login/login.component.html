@@ -39,15 +39,20 @@
             {{ inputPassword.errors?.['appMaxCount'] }} ...
         </div> -->
     </div>
-    <button class="btn">Log In</button>
+    <button
+        class="btn"
+        [style]="{backgroundColor:loginForm.invalid?'gray':'green'}"
+    >
+        Log In
+    </button>
     <span>
         If you don't have a profile, click
         <a href="#">here</a>
     </span>
 </form>
 
-
-<br />
-<br />
-<br />
+<br>
+<br>
+<br>
 {{ loginForm.value | json }}
+Invalid Form: {{ loginForm.invalid | json }}

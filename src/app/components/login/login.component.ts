@@ -10,8 +10,6 @@ export class LoginComponent {
 
   @ViewChild('loginForm') loginForm: NgForm | undefined;
 
-
-
   loginSubmitHandler(): void {
     if (!this.loginForm) return;
 
@@ -22,7 +20,7 @@ export class LoginComponent {
     }
 
     const value: { email: string; password: string } = form.value;
-    console.log(value);
+    // console.log(value);
     form.setValue({ email: '', password: '' })
   }
 
