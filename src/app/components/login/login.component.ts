@@ -22,7 +22,7 @@ export class LoginComponent {
     }
 
     const value: { email: string; password: string } = form.value;
-    // console.log(value);
+    console.log(value);
     form.setValue({ email: '', password: '' })
   }
 
