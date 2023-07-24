@@ -12,8 +12,18 @@ export class LoginComponent {
 
 
 
-  submitHandler(): void {
+  loginSubmitHandler(): void {
+    if (!this.loginForm) return;
 
+    const form = this.loginForm;
+
+    if (form.invalid) {
+      return
+    }
+
+    const value: { email: string; password: string } = form.value;
+    // console.log(value);
+    form.setValue({ email: '', password: '' })
   }
 
 }
