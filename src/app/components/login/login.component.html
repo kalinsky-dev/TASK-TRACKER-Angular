@@ -1,0 +1,47 @@
+<form
+    class="add-form"
+    #loginForm="ngForm"
+    (ngSubmit)="submitHandler()"
+>
+    <div class="form-control">
+        <!-- EMAIL -->
+        <label for="email">Email:</label>
+        <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Add Email"
+            ngModel
+            email
+            required
+            #emailInput="ngModel"
+        >
+
+        <!-- email error msg -->
+        <div *ngIf="emailInput.touched">
+            <div *ngIf="emailInput.errors?.['required']">Email is required!</div>
+            <div *ngIf="emailInput.errors?.['email']">Invalid EMAIL!</div>
+        </div>
+        <!-- PASSWORD -->
+
+        <label for="password">Password:</label>
+        <input
+            type="text"
+            id="password"
+            name="password"
+            placeholder="Add Password"
+            ngModel
+            #passwordInput="ngModel"
+        >
+        <!-- password error msg -->
+        <div *ngIf="passwordInput.errors?.['appMaxCount']">
+            Invalid Password, because length is longer than
+  {{ passwordInput.errors?.['appMaxCount'] }} ...
+        </div>
+    </div>
+    <button class="btn">Log In</button>
+    <span>
+        If you don't have a profile, click
+        <a href="#">here</a>
+    </span>
+</form>
