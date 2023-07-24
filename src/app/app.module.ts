@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
     TasksComponent,
     LoginComponent,
     RegisterComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    TaskDetailsComponent
   ],
   imports: [
     BrowserModule,
