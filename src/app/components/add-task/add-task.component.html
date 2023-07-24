@@ -3,7 +3,7 @@
     #addTaskForm="ngForm"
     (ngSubmit)="addSubmitHandler()"
 >
-    <!-- NAME -->
+    <!-- TASK Name -->
     <div class="form-control">
         <label for="taskName">Name of the Task:</label>
         <input
@@ -21,7 +21,7 @@
             <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
         </div> -->
 
-        <!-- Task Description -->
+        <!-- TASK Description -->
         <label for="taskDescr">Description of the Task:</label>
         <input
             type="text"
