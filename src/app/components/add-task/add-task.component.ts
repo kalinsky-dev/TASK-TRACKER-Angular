@@ -10,7 +10,7 @@ import { Task } from 'src/app/types/Task';
 
 export class AddTaskComponent {
 
-  taskData: Task = {
+  taskData = {
     name: '',
     description: '',
     owner: '',
