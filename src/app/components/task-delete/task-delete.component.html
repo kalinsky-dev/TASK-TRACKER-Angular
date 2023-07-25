@@ -1,0 +1,17 @@
+<div class="form-control">
+    <h2>
+        Are you sure you want to delete this Task?
+    </h2>
+</div>
+<a routerLink="/">
+    <button class="btn">Back</button>
+</a>
+<a routerLink="/">
+    <button
+        class="btn"
+        [ngStyle]="{'background-color':'red'}"
+        (click)="onDeleteHandler()"
+    >
+        Delete
+    </button>
+</a>

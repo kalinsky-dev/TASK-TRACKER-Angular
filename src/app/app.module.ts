@@ -16,6 +16,7 @@ import { TaskDetailsComponent } from './components/task-details/task-details.com
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TaskDeleteComponent } from './components/task-delete/task-delete.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FooterComponent } from './components/footer/footer.component';
     TaskDetailsComponent,
     HomeComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    TaskDeleteComponent
   ],
   imports: [
     BrowserModule,
