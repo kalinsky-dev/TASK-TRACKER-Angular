@@ -33,6 +33,7 @@ export class AddTaskComponent {
 
     const value: { taskName: string; taskDescr: string } = form.value;
     // console.log(value);
+    this.taskData = { ...this.taskData, name: value.taskName, description: value.taskDescr }
     form.setValue({ taskName: '', taskDescr: '' })
   }
 }
