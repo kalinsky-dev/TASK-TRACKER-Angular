@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 
 export class HeaderComponent {
-  
+
   title: string = 'Task Tracker';
 
   constructor(private router: Router) { }
@@ -21,19 +21,4 @@ export class HeaderComponent {
     console.log('Sort Tasks');
   }
 
-  addTaskHandler() {
-    console.log('Add Task');
-  }
-
-  loginHandler() {
-    console.log('Login');
-  }
-
-  registerHandler() {
-    console.log('Register');
-  }
-
-  logoutHandler() {
-    console.log('Logout');
-  }
 }

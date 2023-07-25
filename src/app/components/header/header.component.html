@@ -7,11 +7,12 @@
         (btnClick)="sortHandler()"
     ></app-button>
 
-    <app-button
-        color="steelblue"
-        text="Add"
-        (btnClick)="addTaskHandler()"
-    ></app-button> -->
+    <a routerLink="/create-task">
+        <app-button
+            color="steelblue"
+            text="Add"
+        ></app-button>
+    </a> -->
 
     <a
         routerLink="/login"
@@ -20,30 +21,24 @@
         <app-button
             color="steelblue"
             text="Login"
-            (btnClick)="loginHandler()"
         ></app-button>
     </a>
 
     <a
-        routerLink="/login"
+        routerLink="/register"
         *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
     >
         <app-button
             color="steelblue"
             text="Register"
-            (btnClick)="registerHandler()"
         ></app-button>
     </a>
 
-    <a
-        routerLink="/logout"
-        *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
-    >
+    <!-- <a routerLink="/logout">
         <app-button
             color="steelblue"
             text="Logout"
-            (btnClick)="logoutHandler()"
         ></app-button>
-    </a>
+    </a> -->
 
 </header>
