@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LogoutComponent } from './components/logout/logout.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
@@ -23,9 +24,9 @@ const routes: Routes = [
   {
     path: 'register', component: RegisterComponent
   },
-  // {
-  //   path: 'logout', component: LogoutComponent
-  // },
+  {
+    path: 'logout', component: LogoutComponent
+  },
   {
     path: 'tasks', component: TasksComponent
   },

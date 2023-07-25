@@ -35,10 +35,15 @@
         ></app-button>
     </a>
 
-    <app-button
-        color="steelblue"
-        text="Logout"
-        (btnClick)="logoutHandler()"
-    ></app-button>
+    <a
+        routerLink="/logout"
+        *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
+    >
+        <app-button
+            color="steelblue"
+            text="Logout"
+            (btnClick)="logoutHandler()"
+        ></app-button>
+    </a>
 
 </header>
