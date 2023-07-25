@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  
+  title: string = 'Task Tracker';
 
   constructor(private router: Router) { }
-
-  title: string = 'Task Tracker';
 
   hasRoute(route: string) {
     return this.router.url == route;
