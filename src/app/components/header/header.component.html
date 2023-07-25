@@ -1,28 +1,44 @@
 <header>
     <h1>{{title}}</h1>
-    <app-button
+
+    <!-- <app-button
         color="steelblue"
         text="Sort"
         (btnClick)="sortHandler()"
     ></app-button>
+
     <app-button
         color="steelblue"
         text="Add"
         (btnClick)="addTaskHandler()"
-    ></app-button>
-    <!-- <app-button
-      color="steelblue"
-      text="Login"
-      (btnClick)="loginHandler()"
-  ></app-button>
-  <app-button
-      color="steelblue"
-      text="Register"
-      (btnClick)="registerHandler()"
-  ></app-button> -->
+    ></app-button> -->
+
+    <a
+        routerLink="/login"
+        *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
+    >
+        <app-button
+            color="steelblue"
+            text="Login"
+            (btnClick)="loginHandler()"
+        ></app-button>
+    </a>
+
+    <a
+        routerLink="/login"
+        *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
+    >
+        <app-button
+            color="steelblue"
+            text="Register"
+            (btnClick)="registerHandler()"
+        ></app-button>
+    </a>
+
     <app-button
         color="steelblue"
         text="Logout"
         (btnClick)="logoutHandler()"
     ></app-button>
+
 </header>
