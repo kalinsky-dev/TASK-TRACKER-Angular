@@ -14,6 +14,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HomeComponent } from './components/home/home.component';
     RegisterComponent,
     AddTaskComponent,
     TaskDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
