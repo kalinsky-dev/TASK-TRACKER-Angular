@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-delete',
@@ -8,8 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TaskDeleteComponent implements OnInit {
 
-  constructor(private activeRoute: ActivatedRoute) { }
-  
+  constructor(private activeRoute: ActivatedRoute, private router: Router) { }
+
   idToDel!: string;
 
   ngOnInit(): void {
@@ -18,5 +18,6 @@ export class TaskDeleteComponent implements OnInit {
 
   onDeleteHandler() {
     console.log(this.idToDel);
+    this.router.navigate([`/`])
   }
 }

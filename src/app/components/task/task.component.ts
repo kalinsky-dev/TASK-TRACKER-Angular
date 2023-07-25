@@ -16,12 +16,12 @@ export class TaskComponent {
   constructor(private router: Router) { }
 
   onTaskClickHandler(taskId: string) {
-    console.log(taskId);
+    // console.log(taskId);
     this.router.navigate([`/tasks/${taskId}`])
   }
 
   onDeleteClickHandler(e: Event, taskId: string) {
-    console.log(taskId);
+    // console.log(taskId);
     this.router.navigate([`/tasks/${taskId}/delete`])
   }
 }
