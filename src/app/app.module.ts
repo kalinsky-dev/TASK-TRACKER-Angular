@@ -11,6 +11,7 @@ import { TaskComponent } from './components/task/task.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LogoutComponent } from './components/logout/logout.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { HomeComponent } from './components/home/home.component';
@@ -18,7 +19,6 @@ import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TaskDeleteComponent } from './components/task-delete/task-delete.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     TasksComponent,
     LoginComponent,
     RegisterComponent,
+    LogoutComponent,
     AddTaskComponent,
     TaskDetailsComponent,
     HomeComponent,
@@ -36,7 +37,6 @@ import { LogoutComponent } from './components/logout/logout.component';
     FooterComponent,
     TaskDeleteComponent,
     NotFoundComponent,
-    LogoutComponent
   ],
   imports: [
     BrowserModule,
