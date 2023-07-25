@@ -13,26 +13,27 @@
             text="Add"
         ></app-button>
     </a> -->
+    <div>
+        <a
+            routerLink="/login"
+            *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
+        >
+            <app-button
+                color="steelblue"
+                text="Login"
+            ></app-button>
+        </a>
 
-    <a
-        routerLink="/login"
-        *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
-    >
-        <app-button
-            color="steelblue"
-            text="Login"
-        ></app-button>
-    </a>
-
-    <a
-        routerLink="/register"
-        *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
-    >
-        <app-button
-            color="steelblue"
-            text="Register"
-        ></app-button>
-    </a>
+        <a
+            routerLink="/register"
+            *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
+        >
+            <app-button
+                color="steelblue"
+                text="Register"
+            ></app-button>
+        </a>
+    </div>
 
     <!-- <a routerLink="/logout">
         <app-button
