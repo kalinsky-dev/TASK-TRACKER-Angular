@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Task } from 'src/app/Task';
+import { Task } from 'src/app/types/Task';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 

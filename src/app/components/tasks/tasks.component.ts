@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from 'src/app/Task';
+import { Task } from 'src/app/types/Task';
 import { TASKS } from 'src/app/mock-tasks';
 
 @Component({
