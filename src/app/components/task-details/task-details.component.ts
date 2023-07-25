@@ -1,14 +1,23 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-details',
   templateUrl: './task-details.component.html',
   styleUrls: ['./task-details.component.css']
 })
-export class TaskDetailsComponent {
+export class TaskDetailsComponent implements OnInit {
+
+  idToEdit!: string;
+
+  constructor(private activeRoute: ActivatedRoute, private router: Router) { }
 
   @ViewChild('editTaskForm') editTaskForm: NgForm | undefined;
+
+  ngOnInit(): void {
+    this.idToEdit = this.activeRoute.snapshot.params['taskId']
+  }
 
   takeItHandler(): void {
     if (!this.editTaskForm) return;
@@ -20,7 +29,7 @@ export class TaskDetailsComponent {
     }
 
     const value: { taskName: string; taskDescr: string } = form.value;
-    console.log('TakeIt: ', value);
+    console.log(`TakeIt: id: ${this.idToEdit}`, value);
     form.setValue({ taskName: '', taskDescr: '' })
   }
 
@@ -34,7 +43,7 @@ export class TaskDetailsComponent {
     }
 
     const value: { taskName: string; taskDescr: string } = form.value;
-    console.log('Edit: ', value);
+    console.log(`Edit: id: ${this.idToEdit}`, value);
     form.setValue({ taskName: '', taskDescr: '' })
   }
 
@@ -48,7 +57,7 @@ export class TaskDetailsComponent {
     }
 
     const value: { taskName: string; taskDescr: string } = form.value;
-    console.log('Delete: ', value);
+    console.log(`Delete: id: ${this.idToEdit}`, value);
     form.setValue({ taskName: '', taskDescr: '' })
   }
 

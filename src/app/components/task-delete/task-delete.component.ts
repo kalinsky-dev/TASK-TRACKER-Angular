@@ -7,10 +7,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./task-delete.component.css']
 })
 export class TaskDeleteComponent implements OnInit {
+  
+  idToDel!: string;
 
   constructor(private activeRoute: ActivatedRoute, private router: Router) { }
-
-  idToDel!: string;
 
   ngOnInit(): void {
     this.idToDel = this.activeRoute.snapshot.params['taskId']
