@@ -7,6 +7,7 @@ import { TASKS } from 'src/app/mock-tasks';
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
+
 export class TasksComponent {
   tasks: Task[] = TASKS;
 }

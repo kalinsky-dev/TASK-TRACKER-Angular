@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './task-delete.component.html',
   styleUrls: ['./task-delete.component.css']
 })
+
 export class TaskDeleteComponent implements OnInit {
   
   idToDel!: string;

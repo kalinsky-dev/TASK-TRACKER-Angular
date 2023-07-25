@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './task-details.component.html',
   styleUrls: ['./task-details.component.css']
 })
+
 export class TaskDetailsComponent implements OnInit {
 
   idToEdit!: string;
