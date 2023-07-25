@@ -17,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TaskDeleteComponent } from './components/task-delete/task-delete.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TaskDeleteComponent } from './components/task-delete/task-delete.compon
     HomeComponent,
     AboutComponent,
     FooterComponent,
-    TaskDeleteComponent
+    TaskDeleteComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
