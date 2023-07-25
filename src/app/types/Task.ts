@@ -6,7 +6,7 @@ export interface Task {
   takenByUser: string | false;
   hoursOfWork: number | false;
   isFinished: boolean;
-  _createdOn?: number;
-  _id?: string;
-  _ownerId?: string;
+  _createdOn: number;
+  _id: string;
+  _ownerId: string;
 }
