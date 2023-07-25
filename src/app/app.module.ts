@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TaskDetailsComponent } from './components/task-details/task-details.com
     LoginComponent,
     RegisterComponent,
     AddTaskComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
