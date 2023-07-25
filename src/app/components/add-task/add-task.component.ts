@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Task } from 'src/app/types/Task';
 
 @Component({
   selector: 'app-add-task',
@@ -8,6 +9,16 @@ import { NgForm } from '@angular/forms';
 })
 
 export class AddTaskComponent {
+
+  taskData: Task = {
+    name: '',
+    description: '',
+    owner: '',
+    inProgress: false,
+    takenByUser: false,
+    hoursOfWork: 0,
+    isFinished: false,
+  };
 
   @ViewChild('addTaskForm') addTaskForm: NgForm | undefined;
 
