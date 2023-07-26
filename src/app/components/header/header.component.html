@@ -1,20 +1,7 @@
 <header>
     <h1>{{title}}</h1>
 
-    <!-- <app-button
-        color="steelblue"
-        text="Sort"
-        (btnClick)="sortHandler()"
-    ></app-button>
-
-    <a routerLink="/create-task">
-        <app-button
-            color="steelblue"
-            text="Add"
-        ></app-button>
-    </a> -->
-    
-    <div>
+    <div *ngIf="!isLoggedIn">
         <a
             routerLink="/login"
             *ngIf="!hasRoute('/login')&&!hasRoute('/register')"
@@ -36,11 +23,24 @@
         </a>
     </div>
 
-    <!-- <a routerLink="/logout">
+    <div *ngIf="isLoggedIn">
+        <app-button
+            color="steelblue"
+            text="Sort"
+            (btnClick)="sortHandler()"
+        ></app-button>
+
+        <a routerLink="/create-task">
+            <app-button
+                color="steelblue"
+                text="Add"
+            ></app-button>
+        </a>
+
         <app-button
             color="steelblue"
             text="Logout"
+            (btnClick)="logout()"
         ></app-button>
-    </a> -->
-
+    </div>
 </header>
