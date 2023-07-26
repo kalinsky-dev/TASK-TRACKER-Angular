@@ -13,6 +13,7 @@ export class UserService {
   constructor() {
     try {
       const lsUser = localStorage.getItem(this.USER_KEY) || '';
+      this.user = JSON.parse(lsUser);
     } catch (error) {
       this.user = undefined;
     }
