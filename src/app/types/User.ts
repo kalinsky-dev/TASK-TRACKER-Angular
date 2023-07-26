@@ -1,7 +1,7 @@
 export interface User {
-  accessToken: string;
+  accessToken?: string;
   email: string;
   password: string;
-  _createdOn: number
-  _id: string;
+  _createdOn?: number
+  _id?: string;
 }
