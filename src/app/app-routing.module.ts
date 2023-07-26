@@ -11,6 +11,7 @@ import { TaskDetailsComponent } from './components/task-details/task-details.com
 import { TaskDeleteComponent } from './components/task-delete/task-delete.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AuthActivate } from './guards/auth.activate';
 
 const routes: Routes = [
   {
@@ -25,19 +26,24 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent
   },
   {
-    path: 'logout', component: LogoutComponent
+    path: 'logout', component: LogoutComponent,
+    canActivate: [AuthActivate]
   },
   {
-    path: 'tasks', component: TasksComponent
+    path: 'tasks', component: TasksComponent,
+    canActivate: [AuthActivate]
   },
   {
-    path: 'create-task', component: AddTaskComponent
+    path: 'create-task', component: AddTaskComponent,
+    canActivate: [AuthActivate]
   },
   {
-    path: 'tasks/:taskId', component: TaskDetailsComponent
+    path: 'tasks/:taskId', component: TaskDetailsComponent,
+    canActivate: [AuthActivate]
   },
   {
-    path: 'tasks/:taskId/delete', component: TaskDeleteComponent
+    path: 'tasks/:taskId/delete', component: TaskDeleteComponent,
+    canActivate: [AuthActivate]
   },
   {
     path: 'about', component: AboutComponent
