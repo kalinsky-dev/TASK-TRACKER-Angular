@@ -1,5 +1,13 @@
-<app-task
-    *ngFor="let task of tasks"
-    [task]="task"
->
-</app-task>
+<ng-container *ngIf="tasks.length>0">
+    <app-task
+        *ngFor="let task of tasks"
+        [task]="task"
+    >
+    </app-task>
+</ng-container>
+<ng-container *ngIf="tasks.length==0">
+    <div>
+        <h2>You haven't created a Task yet!</h2>
+        <h2>Try it now...</h2>
+    </div>
+</ng-container>
