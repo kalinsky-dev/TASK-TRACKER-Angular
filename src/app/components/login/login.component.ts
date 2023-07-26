@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/types/User';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +10,10 @@ import { NgForm } from '@angular/forms';
 })
 
 export class LoginComponent {
+
+  userData: User = { email: '', password: '' }
+
+  constructor(private userService: UserService) { }
 
   @ViewChild('loginForm') loginForm: NgForm | undefined;
 
@@ -22,6 +28,9 @@ export class LoginComponent {
 
     const value: { email: string; password: string } = form.value;
     // console.log(value);
+    this.userData = { email: value.email, password: value.password };
+    // console.log(this.userData);
+    this.userService.login();
     form.setValue({ email: '', password: '' })
   }
 }
