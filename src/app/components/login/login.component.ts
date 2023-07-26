@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/types/User';
 
@@ -13,7 +14,7 @@ export class LoginComponent {
 
   userData: User = { email: '', password: '' }
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   @ViewChild('loginForm') loginForm: NgForm | undefined;
 
@@ -33,5 +34,6 @@ export class LoginComponent {
     // console.log(this.userData);
     //ToDo: for now we are not handling the data!
     this.userService.login();
+    this.router.navigate(['/tasks']);
   }
 }
