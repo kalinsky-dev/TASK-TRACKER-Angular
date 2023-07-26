@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,15 @@ export class HeaderComponent {
 
   title: string = 'Task Tracker';
 
-  constructor(private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
+
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
+  }
+
+  get userEmail(): string {
+    return this.userService.user?.email || '';
+  }
 
   hasRoute(route: string) {
     return this.router.url == route;
@@ -21,4 +30,8 @@ export class HeaderComponent {
     console.log('Sort Tasks');
   }
 
+  logout(): void {
+    this.userService.logout();
+    this.router.navigate(['/']);
+  }
 }
