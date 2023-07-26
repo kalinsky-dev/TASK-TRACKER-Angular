@@ -27,9 +27,11 @@ export class UserService {
       email: 'kalin@gmail.com',
       password: '12345'
     }
+
+    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
   }
 
-  logout() {
+  logout(): void {
     this.user = undefined;
     localStorage.removeItem(this.USER_KEY);
   }
