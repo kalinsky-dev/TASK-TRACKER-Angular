@@ -31,7 +31,17 @@ export class HeaderComponent {
   }
 
   logout(): void {
-    this.userService.logout();
-    this.router.navigate(['/']);
+    // this.userService.logout();
+    // this.router.navigate(['/']);
+    //ToDo: for now I do not work with the server!
+
+    this.userService.logout().subscribe({
+      next: () => {
+        this.router.navigate(['/login']);
+      },
+      error: () => {
+        this.router.navigate(['/login']);
+      }
+    })
   }
 }
