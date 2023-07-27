@@ -12,19 +12,19 @@ export class TaskService {
   tasks: Task[] = [];
 
   constructor(private http: HttpClient) {
-    const { baseUrl } = environment;
-    const url = `${baseUrl}/data/tasks`
-    this.http.get<Task[]>(url).subscribe({
-      next: (tasksArr) => {
-        this.tasks = tasksArr;
-      },
-      error: (err) => {
-        // console.error(`Error:${err}`)
-        if (err.code == '404') {
-          return;
-        }
-      }
-    })
+    // const { baseUrl } = environment;
+    // const url = `${baseUrl}/data/tasks`
+    // this.http.get<Task[]>(url).subscribe({
+    //   next: (tasksArr) => {
+    //     this.tasks = tasksArr;
+    //   },
+    //   error: (err) => {
+    //     console.error(`Error:${err}`)
+    //     if (err.code == '404') {
+    //       return;
+    //     }
+    //   }
+    // })
   }
 
   getAll() {
