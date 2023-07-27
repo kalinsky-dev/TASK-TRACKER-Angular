@@ -8,7 +8,23 @@ import { Task } from '../types/Task';
 })
 export class TaskService {
 
-  constructor(private http: HttpClient) { }
+  tasks: Task[] = [];
+
+  constructor(private http: HttpClient) {
+    const { baseUrl } = environment;
+    const url = `${baseUrl}/data/tasks`
+    this.http.get<Task[]>(url).subscribe({
+      next: (tasksArr) => {
+        this.tasks = tasksArr;
+      },
+      error: (err) => {
+        // console.error(`Error:${err}`)
+        if (err.code == '404') {
+          return;
+        }
+      }
+    })
+  }
 
   getAll() {
     const { baseUrl } = environment;
@@ -23,5 +39,7 @@ export class TaskService {
   edit() { }
 
   remove() { }
+
+  sort() { }
 
 }
