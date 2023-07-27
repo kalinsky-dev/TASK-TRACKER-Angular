@@ -27,13 +27,18 @@ export class LoginComponent {
       return
     }
 
-    const value: { email: string; password: string } = form.value;
+    // const value: { email: string; password: string } = form.value;
     // console.log(value);
-    form.setValue({ email: '', password: '' })
-    this.userData = { email: value.email, password: value.password };
+    // form.setValue({ email: '', password: '' })
+    // this.userData = { email: value.email, password: value.password };
     // console.log(this.userData);
-    //ToDo: for now we are not handling the data!
-    this.userService.login();
-    this.router.navigate(['/tasks']);
+    //ToDo: for now I do not handle the data from the server!
+
+    const { email, password } = form.value;
+
+    this.userService.login(email, password).subscribe(() => {
+      form.setValue({ email: '', password: '' })
+      this.router.navigate(['/tasks']);
+    });
   }
 }
