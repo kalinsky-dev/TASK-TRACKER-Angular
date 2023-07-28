@@ -28,7 +28,7 @@ export class TaskDetailsComponent implements OnInit {
   fetchTask() {
     this.taskService.getOne(this.idToEdit).subscribe((taskObj) => {
       this.task = taskObj;
-      console.log(this.task);
+      // console.log(this.task);
     });
   }
 
