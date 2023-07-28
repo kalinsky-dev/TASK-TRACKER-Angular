@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.development';
 import { Task } from '../types/Task';
 
 @Injectable({
@@ -9,38 +8,27 @@ import { Task } from '../types/Task';
 
 export class TaskService {
 
-  tasks: Task[] = [];
-
-  constructor(private http: HttpClient) {
-    // const { baseUrl } = environment;
-    // const url = `${baseUrl}/data/tasks`
-    // this.http.get<Task[]>(url).subscribe({
-    //   next: (tasksArr) => {
-    //     this.tasks = tasksArr;
-    //   },
-    //   error: (err) => {
-    //     console.error(`Error:${err}`)
-    //     if (err.code == '404') {
-    //       return;
-    //     }
-    //   }
-    // })
-  }
+  constructor(private http: HttpClient) { }
 
   getAll() {
-    const { baseUrl } = environment;
-    const url = `${baseUrl}/data/tasks`
-    return this.http.get<Task[]>(url)
+    return this.http.get<Task[]>('/api/data/tasks')
   }
 
-  getOne() { }
+  getOne(taskId: string) {
+    return this.http.get<Task>(`/api/data/tasks/${taskId}`)
+  }
 
-  create() { }
+  create(taskData: object) {
+    return this.http.post<Task[]>('/api/data/tasks', taskData)
+  }
 
-  edit() { }
+  edit(taskId: string, taskData: object) {
+    return this.http.put(`/api/data/tasks/${taskId}`, taskData)
+  }
 
-  remove() { }
-
-  sort() { }
+  remove(taskId: string) {
+    return this.http.delete(`/api/data/tasks/${taskId}`)
+  }
 
 }
+
