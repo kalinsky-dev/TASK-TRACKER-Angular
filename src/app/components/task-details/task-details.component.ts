@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { tap } from 'rxjs';
 import { TaskService } from 'src/app/services/task.service';
+import { UserService } from 'src/app/services/user.service';
 import { Task } from 'src/app/types/Task';
+import { User } from 'src/app/types/User';
 
 @Component({
   selector: 'app-task-details',
@@ -14,22 +15,43 @@ import { Task } from 'src/app/types/Task';
 export class TaskDetailsComponent implements OnInit {
 
   idToEdit!: string;
-  task!: Task
+  task!: Task;
+  user!: User;
 
-  constructor(private taskService: TaskService, private activeRoute: ActivatedRoute, private router: Router) { }
+  ifOwner: boolean = false;
+  inProgress: boolean = false;
+  hoursOfWork: number | false | undefined;
+  takenByUser: string | false | undefined;
+  isFinished: boolean = false;
+  description: string = ''
+  name: string = ''
+
+  constructor(private taskService: TaskService, private userService: UserService,
+    private activeRoute: ActivatedRoute, private router: Router) { }
 
   @ViewChild('editTaskForm') editTaskForm: NgForm | undefined;
 
   ngOnInit(): void {
     this.idToEdit = this.activeRoute.snapshot.params['taskId'];
-    this.fetchTask();
+    this.fetchTaskAndSetProps();
   }
 
-  fetchTask() {
+  fetchTaskAndSetProps() {
     this.taskService.getOne(this.idToEdit).subscribe((taskObj) => {
       this.task = taskObj;
-      // console.log(this.task);
+      // this.user = this.userService.user!;
+      this.propertiesSetter();
     });
+  }
+
+  propertiesSetter() {
+    this.ifOwner = this.user.email == this.task.owner;
+    this.inProgress = this.task.inProgress;
+    this.hoursOfWork = this.task.hoursOfWork;
+    this.takenByUser = this.task.takenByUser;
+    this.isFinished = this.task.isFinished;
+    this.description = this.task.description;
+    this.name = this.task.name;
   }
 
   takeItHandler(): void {
@@ -44,6 +66,10 @@ export class TaskDetailsComponent implements OnInit {
     const value: { taskName: string; taskDescr: string } = form.value;
     console.log(`TakeIt: id: ${this.idToEdit}`, value);
     form.setValue({ taskName: '', taskDescr: '' })
+  }
+
+  finishItHandler(): void {
+
   }
 
   editHandler(): void {
