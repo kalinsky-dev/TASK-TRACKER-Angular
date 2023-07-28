@@ -12,7 +12,7 @@
     </h3>
     <h3 *ngIf="task.isFinished==false">{{task.name}}</h3>
     <p>Description: {{task.description}}</p>
-    <p>Task is created by: {{task._ownerId}}</p>
+    <p>Task is created by: {{task.owner}}</p>
     <p *ngIf="task.takenByUser==null">This task is not taken yet!</p>
     <p *ngIf="task.takenByUser!=null">Task is taken by: {{task.takenByUser}}</p>
     <p *ngIf="task.inProgress==true">Task is in progress!</p>
