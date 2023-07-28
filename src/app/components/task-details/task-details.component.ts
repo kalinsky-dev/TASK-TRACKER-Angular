@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { tap } from 'rxjs';
+import { TaskService } from 'src/app/services/task.service';
+import { Task } from 'src/app/types/Task';
 
 @Component({
   selector: 'app-task-details',
@@ -11,13 +14,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TaskDetailsComponent implements OnInit {
 
   idToEdit!: string;
+  task!: Task
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router) { }
+  constructor(private taskService: TaskService, private activeRoute: ActivatedRoute, private router: Router) { }
 
   @ViewChild('editTaskForm') editTaskForm: NgForm | undefined;
 
   ngOnInit(): void {
-    this.idToEdit = this.activeRoute.snapshot.params['taskId']
+    this.idToEdit = this.activeRoute.snapshot.params['taskId'];
+    this.fetchTask();
+  }
+
+  fetchTask() {
+    this.taskService.getOne(this.idToEdit).subscribe((taskObj) => {
+      this.task = taskObj;
+      console.log(this.task);
+    });
   }
 
   takeItHandler(): void {
