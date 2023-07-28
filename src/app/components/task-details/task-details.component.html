@@ -1,63 +1,189 @@
-<form
-    class="add-form"
-    #editTaskForm="ngForm"
->
-    <!-- TASK Name -->
-    <div class="form-control">
-        <label for="taskName">Name of the Task:</label>
-        <input
-            type="text"
-            id="taskName"
-            name="taskName"
-            placeholder="Add Task"
-            ngModel
-            required
-            #inputName="ngModel"
-        >
-        <!-- name error msg -->
-        <!-- <div *ngIf="inputName.touched">
+<ng-container *ngIf="!ifOwner&&!isFinished">
+    <div
+        *ngIf="inProgress"
+        class="form-control"
+    >
+        <h2>This Task is in Progress!</h2>
+        <a routerLink="/tasks">Go Back</a>
+    </div>
+
+    <div
+        *ngIf="!inProgress"
+        class="form-control"
+    >
+        <h2>
+            You have no permission to edit this Task!
+        </h2>
+        <a routerLink="/tasks">Go Back</a>
+    </div>
+
+</ng-container>
+
+<ng-container *ngIf="ifOwner&&!isFinished">
+    <form
+        *ngIf="!inProgress"
+        class="add-form"
+        #editTaskForm="ngForm"
+    >
+        <!-- TASK Name -->
+        <div class="form-control">
+            <label for="taskName">Name of the Task:</label>
+            <input
+                type="text"
+                id="taskName"
+                name="taskName"
+                placeholder={{task.name}}
+                ngModel
+                required
+                #inputName="ngModel"
+            >
+            <!-- name error msg -->
+            <!-- <div *ngIf="inputName.touched">
             <div *ngIf="inputName.errors?.['required']">Name is required!</div>
             <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
         </div> -->
 
-        <!-- TASK Description -->
-        <label for="taskDescr">Description of the Task:</label>
-        <input
-            type="text"
-            id="taskDescr"
-            name="taskDescr"
-            placeholder="Add Description"
-            ngModel
-            required
-            #inputDescr="ngModel"
-        >
-        <!-- description error msg -->
-        <!-- <div *ngIf="inputDescr.errors?.['appMaxCount']">
+            <!-- TASK Description -->
+            <label for="taskDescr">Description of the Task:</label>
+            <input
+                type="text"
+                id="taskDescr"
+                name="taskDescr"
+                placeholder={{description}}
+                ngModel
+                required
+                #inputDescr="ngModel"
+            >
+            <!-- description error msg -->
+            <!-- <div *ngIf="inputDescr.errors?.['appMaxCount']">
             Invalid Description, because length is longer than
             {{ inputDescr.errors?.['appMaxCount'] }} ...
         </div> -->
+        </div>
+        <button
+            *ngIf="!inProgress"
+            class="btn"
+            [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+            (click)="takeItHandler()"
+        >
+            Take it
+        </button>
+        <button
+            *ngIf="inProgress"
+            class="btn"
+            [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+            (click)="finishItHandler()"
+        >
+            Finish
+        </button>
+        <button
+            *ngIf="!inProgress"
+            class="btn"
+            [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+            (click)="editHandler()"
+        >
+            Edit
+        </button>
+        <button
+            *ngIf="!inProgress"
+            class="btn"
+            [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+            (click)="deleteHandler()"
+        >
+            Delete
+        </button>
+    </form>
+
+    <form
+        *ngIf="inProgress"
+        class="add-form"
+        #editTaskForm="ngForm"
+    >
+        <!-- TASK Name -->
+        <div class="form-control">
+            <label for="taskName">Name of the Task:</label>
+            <input
+                type="text"
+                id="taskName"
+                name="taskName"
+                placeholder={{name}}
+                disabled="false"
+                ngModel
+                required
+                #inputName="ngModel"
+            >
+            <!-- name error msg -->
+            <!-- <div *ngIf="inputName.touched">
+            <div *ngIf="inputName.errors?.['required']">Name is required!</div>
+            <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
+        </div> -->
+
+            <!-- TASK Description -->
+            <label for="taskDescr">Description of the Task:</label>
+            <input
+                type="text"
+                id="taskDescr"
+                name="taskDescr"
+                placeholder={{description}}
+                disabled="false"
+                ngModel
+                required
+                #inputDescr="ngModel"
+            >
+            <!-- description error msg -->
+            <!-- <div *ngIf="inputDescr.errors?.['appMaxCount']">
+            Invalid Description, because length is longer than
+            {{ inputDescr.errors?.['appMaxCount'] }} ...
+        </div> -->
+        </div>
+        <button
+            *ngIf="!inProgress"
+            class="btn"
+            [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+            (click)="takeItHandler()"
+        >
+            Take it
+        </button>
+        <button
+            *ngIf="inProgress"
+            class="btn"
+            [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+            (click)="finishItHandler()"
+        >
+            Finish
+        </button>
+        <button
+            *ngIf="!inProgress"
+            class="btn"
+            [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+            (click)="editHandler()"
+        >
+            Edit
+        </button>
+        <button
+            *ngIf="!inProgress"
+            class="btn"
+            [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+            (click)="deleteHandler()"
+        >
+            Delete
+        </button>
+    </form>
+</ng-container>
+
+<ng-container *ngIf="isFinished&&!inProgress">
+    <div class="form-control">
+        <h2>
+            This Task is already finished for {{task.hoursOfWork}} hours by {{task.takenByUser}}!
+        </h2>
+        <button
+            class="btn"
+            [style]="{backgroundColor:'red'}"
+            (click)="deleteHandler()"
+        >
+            Delete
+        </button>
     </div>
-    <button
-        class="btn"
-        [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
-        (click)="takeItHandler()"
-    >
-        Take it
-    </button>
-    <button
-        class="btn"
-        [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
-        (click)="editHandler()"
-    >
-        Edit
-    </button>
-    <button
-        class="btn"
-        [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
-        (click)="deleteHandler()"
-    >
-        Delete
-    </button>
-</form>
-{{ editTaskForm.value | json }}
-Invalid Form: {{ editTaskForm.invalid | json }}
+</ng-container>
+{{ editTaskForm?.value | json }}
+Invalid Form: {{ editTaskForm?.invalid | json }}
