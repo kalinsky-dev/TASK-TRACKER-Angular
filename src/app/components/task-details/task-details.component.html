@@ -33,8 +33,7 @@
                     type="text"
                     id="taskName"
                     name="taskName"
-                    placeholder={{task.name}}
-                    ngModel
+                    [ngModel]="name"
                     required
                     #inputName="ngModel"
                 >
@@ -50,8 +49,7 @@
                     type="text"
                     id="taskDescr"
                     name="taskDescr"
-                    placeholder={{description}}
-                    ngModel
+                    [ngModel]="description"
                     required
                     #inputDescr="ngModel"
                 >
@@ -107,9 +105,8 @@
                     type="text"
                     id="taskName"
                     name="taskName"
-                    placeholder={{name}}
                     disabled="false"
-                    ngModel
+                    [ngModel]="name"
                     required
                     #inputName="ngModel"
                 >
@@ -125,9 +122,8 @@
                     type="text"
                     id="taskDescr"
                     name="taskDescr"
-                    placeholder={{description}}
                     disabled="false"
-                    ngModel
+                    [ngModel]="description"
                     required
                     #inputDescr="ngModel"
                 >
