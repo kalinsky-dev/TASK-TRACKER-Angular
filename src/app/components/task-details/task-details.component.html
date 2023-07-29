@@ -39,9 +39,9 @@
                 >
                 <!-- name error msg -->
                 <!-- <div *ngIf="inputName.touched">
-            <div *ngIf="inputName.errors?.['required']">Name is required!</div>
-            <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
-        </div> -->
+                    <div *ngIf="inputName.errors?.['required']">Name is required!</div>
+                    <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
+                </div> -->
 
                 <!-- TASK Description -->
                 <label for="taskDescr">Description of the Task:</label>
@@ -55,9 +55,9 @@
                 >
                 <!-- description error msg -->
                 <!-- <div *ngIf="inputDescr.errors?.['appMaxCount']">
-            Invalid Description, because length is longer than
-            {{ inputDescr.errors?.['appMaxCount'] }} ...
-        </div> -->
+                    Invalid Description, because length is longer than
+                    {{ inputDescr.errors?.['appMaxCount'] }} ...
+                </div> -->
             </div>
             <button
                 *ngIf="!inProgress"
@@ -106,16 +106,16 @@
                     type="text"
                     id="taskName"
                     name="taskName"
-                    disabled="false"
+                    disabled="true"
                     [ngModel]="name"
                     required
                     #inputName="ngModel"
                 >
                 <!-- name error msg -->
                 <!-- <div *ngIf="inputName.touched">
-            <div *ngIf="inputName.errors?.['required']">Name is required!</div>
-            <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
-        </div> -->
+                    <div *ngIf="inputName.errors?.['required']">Name is required!</div>
+                    <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
+                </div> -->
 
                 <!-- TASK Description -->
                 <label for="taskDescr">Description of the Task:</label>
@@ -123,16 +123,33 @@
                     type="text"
                     id="taskDescr"
                     name="taskDescr"
-                    disabled="false"
+                    disabled="true"
                     [ngModel]="description"
                     required
                     #inputDescr="ngModel"
                 >
                 <!-- description error msg -->
                 <!-- <div *ngIf="inputDescr.errors?.['appMaxCount']">
-            Invalid Description, because length is longer than
-            {{ inputDescr.errors?.['appMaxCount'] }} ...
-        </div> -->
+                    Invalid Description, because length is longer than
+                     {{ inputDescr.errors?.['appMaxCount'] }} ...
+                </div> -->
+
+                <!-- Working Hours for the Task -->
+                <label for="hoursToWork">Working hours for the Task:</label>
+                <input
+                    type="text"
+                    id="hoursToWork"
+                    name="hoursToWork"
+                    disabled="false"
+                    [ngModel]="hoursOfWork"
+                    required
+                    #inputHours="ngModel"
+                >
+                <!-- description error msg -->
+                <!-- <div *ngIf="inputHours.errors?.['appMaxCount']">
+                    Invalid Description, because length is longer than
+                    {{ inputHours.errors?.['appMaxCount'] }} ...
+                </div> -->
             </div>
             <button
                 *ngIf="!inProgress"
