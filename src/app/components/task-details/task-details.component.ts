@@ -17,6 +17,7 @@ export class TaskDetailsComponent implements OnInit {
   idToEdit!: string;
   task!: Task | undefined;
   user!: User;
+  taskData: object | undefined;
 
   ifOwner!: boolean | undefined;
   inProgress!: boolean | undefined;
@@ -82,8 +83,16 @@ export class TaskDetailsComponent implements OnInit {
     }
 
     const value: { taskName: string; taskDescr: string } = form.value;
-    console.log(`Edit: id: ${this.idToEdit}`, value);
-    form.setValue({ taskName: '', taskDescr: '' })
+    // console.log(`Edit: id: ${this.idToEdit}`, value);
+    // ToDo: for now I do not handle the data from the server!
+    this.taskData = { ...this.task, name: value.taskName, description: value.taskDescr }
+    this.taskService.edit(this.idToEdit, this.taskData)
+      .subscribe(() => {
+        form.setValue({ taskName: '', taskDescr: '' });
+        this.router.navigate(['/tasks']);
+      })
+
+
   }
 
 

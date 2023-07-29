@@ -38,10 +38,12 @@ export class AddTaskComponent {
     const value: { taskName: string; taskDescr: string } = form.value;
     const owner = this.userService.user!.email;
     // console.log(value);
+    // ToDo: for now I do not handle the data from the server!
     this.taskData = { ...this.taskData, name: value.taskName, description: value.taskDescr, owner: owner }
-    this.taskService.create(this.taskData).subscribe(() => {
-      form.setValue({ taskName: '', taskDescr: '' })
-      this.router.navigate(['/tasks'])
-    })
+    this.taskService.create(this.taskData)
+      .subscribe(() => {
+        form.setValue({ taskName: '', taskDescr: '' })
+        this.router.navigate(['/tasks'])
+      })
   }
 }
