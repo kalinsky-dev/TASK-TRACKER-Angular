@@ -91,10 +91,5 @@ export class TaskDetailsComponent implements OnInit {
         form.setValue({ taskName: '', taskDescr: '' });
         this.router.navigate(['/tasks']);
       })
-
-
   }
-
-
-
 }
