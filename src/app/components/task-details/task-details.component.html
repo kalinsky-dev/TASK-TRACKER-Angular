@@ -83,14 +83,15 @@
             >
                 Edit
             </button>
-            <button
-                *ngIf="!inProgress"
-                class="btn"
-                [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
-                (click)="deleteHandler()"
-            >
-                Delete
-            </button>
+            <a routerLink="/tasks/{{idToEdit}}/delete">
+                <button
+                    *ngIf="!inProgress"
+                    class="btn"
+                    [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+                >
+                    Delete
+                </button>
+            </a>
         </form>
 
         <form
@@ -157,14 +158,15 @@
             >
                 Edit
             </button>
-            <button
-                *ngIf="!inProgress"
-                class="btn"
-                [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
-                (click)="deleteHandler()"
-            >
-                Delete
-            </button>
+            <a routerLink="/tasks/{{idToEdit}}/delete">
+                <button
+                    *ngIf="!inProgress"
+                    class="btn"
+                    [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+                >
+                    Delete
+                </button>
+            </a>
         </form>
     </ng-container>
 
@@ -173,13 +175,14 @@
             <h2>
                 This Task is already finished for {{task.hoursOfWork}} hours by {{task.takenByUser}}!
             </h2>
-            <button
-                class="btn"
-                [style]="{backgroundColor:'red'}"
-                (click)="deleteHandler()"
-            >
-                Delete
-            </button>
+            <a routerLink="/tasks/{{idToEdit}}/delete">
+                <button
+                    class="btn"
+                    [style]="{backgroundColor:'red'}"
+                >
+                    Delete
+                </button>
+            </a>
         </div>
     </ng-container>
     <!-- {{ editTaskForm?.value | json }}
