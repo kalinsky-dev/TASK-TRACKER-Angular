@@ -32,9 +32,10 @@ export class AppInterceptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       catchError((err) => {
-        if (err.code == 401) {   //Unauthorized
+        if (err.status == 401) {   //Unauthorized
           this.router.navigate(['/login']);
-        } else if (err.code == 404) {  //Not Found Resource (Initially is alwasy true!)
+        } else if (err.status == 404) {  //Not Found Resource (Initially is alwasy true!)
+          // console.log('you have an error 404');
           return [];
         }
         else {
