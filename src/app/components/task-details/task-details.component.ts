@@ -76,7 +76,23 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   finishItHandler(): void {
+    if (!this.editTaskForm) return;
 
+    const form = this.editTaskForm;
+
+    if (form.invalid) {
+      return
+    }
+    const value: { taskName: string; taskDescr: string; hoursToWork: string; } = form.value;
+    // console.log(`FinishIt: id: ${this.idToEdit}`, value);
+    this.hoursOfWork = Number(value.hoursToWork);
+    // ToDo: for now I do not handle the data from the server!
+    this.taskData = { ...this.task, inProgress: false, isFinished: true, hoursOfWork: this.hoursOfWork }
+    this.taskService.edit(this.idToEdit, this.taskData)
+      .subscribe(() => {
+        form.setValue({ taskName: '', taskDescr: '', hoursToWork: 0 });
+        this.router.navigate(['/tasks']);
+      })
   }
 
   editHandler(): void {
