@@ -15,16 +15,16 @@ import { User } from 'src/app/types/User';
 export class TaskDetailsComponent implements OnInit {
 
   idToEdit!: string;
-  task!: Task;
+  task!: Task | undefined;
   user!: User;
 
-  ifOwner: boolean = false;
-  inProgress: boolean = false;
-  hoursOfWork: number | false | undefined;
-  takenByUser: string | false | undefined;
-  isFinished: boolean = false;
-  description: string = ''
-  name: string = ''
+  ifOwner!: boolean | undefined;
+  inProgress!: boolean | undefined;
+  hoursOfWork!: number | false | undefined;
+  takenByUser!: string | false | undefined;
+  isFinished!: boolean | undefined;
+  description!: string | undefined;
+  name!: string | undefined;
 
   constructor(private taskService: TaskService, private userService: UserService,
     private activeRoute: ActivatedRoute, private router: Router) { }
@@ -39,19 +39,19 @@ export class TaskDetailsComponent implements OnInit {
   fetchTaskAndSetProps() {
     this.taskService.getOne(this.idToEdit).subscribe((taskObj) => {
       this.task = taskObj;
-      // this.user = this.userService.user!;
+      this.user = this.userService.user!;
       this.propertiesSetter();
     });
   }
 
   propertiesSetter() {
-    this.ifOwner = this.user.email == this.task.owner;
-    this.inProgress = this.task.inProgress;
-    this.hoursOfWork = this.task.hoursOfWork;
-    this.takenByUser = this.task.takenByUser;
-    this.isFinished = this.task.isFinished;
-    this.description = this.task.description;
-    this.name = this.task.name;
+    this.ifOwner = this.user.email == this.task?.owner;
+    this.inProgress = this.task?.inProgress;
+    this.hoursOfWork = this.task?.hoursOfWork;
+    this.takenByUser = this.task?.takenByUser;
+    this.isFinished = this.task?.isFinished;
+    this.description = this.task?.description;
+    this.name = this.task?.name;
   }
 
   takeItHandler(): void {
