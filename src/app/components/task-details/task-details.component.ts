@@ -86,18 +86,6 @@ export class TaskDetailsComponent implements OnInit {
     form.setValue({ taskName: '', taskDescr: '' })
   }
 
-  deleteHandler(): void {
-    if (!this.editTaskForm) return;
 
-    const form = this.editTaskForm;
-
-    if (form.invalid) {
-      return
-    }
-
-    const value: { taskName: string; taskDescr: string } = form.value;
-    console.log(`Delete: id: ${this.idToEdit}`, value);
-    form.setValue({ taskName: '', taskDescr: '' })
-  }
 
 }
