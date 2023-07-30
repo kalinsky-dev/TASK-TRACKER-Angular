@@ -2,10 +2,10 @@
     <button
         *ngIf="tasks.length>1"
         class="btn btn-block"
-        [style]="{backgroundColor:'green'}"
+        [style]="{backgroundColor:'steelblue'}"
         (click)="sortHandler()"
     >
-        Sort the Tasks by woking hours ! 
+        Sort the Tasks by Working Hours ! 
     </button>
     <app-task
         *ngFor="let task of tasks"
