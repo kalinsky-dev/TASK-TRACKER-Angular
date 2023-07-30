@@ -46,7 +46,8 @@ body {
 }
 
 .btn-block {
-  display: block;
+  display: inline-block;
+  text-decoration: none;
   width: 100%;
 }
 
