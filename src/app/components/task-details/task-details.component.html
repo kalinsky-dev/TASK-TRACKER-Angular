@@ -1,7 +1,7 @@
 <ng-container *ngIf="task">
-    <ng-container *ngIf="!ifOwner&&!isFinished">
+    <ng-container *ngIf="!ifOwner">
         <div
-            *ngIf="inProgress"
+            *ngIf="inProgress&&!isFinished"
             class="form-control"
         >
             <h2>This Task is in Progress!</h2>
@@ -9,7 +9,7 @@
         </div>
 
         <div
-            *ngIf="!inProgress"
+            *ngIf="isFinished"
             class="form-control"
         >
             <h2>
@@ -188,7 +188,7 @@
         </form>
     </ng-container>
 
-    <ng-container *ngIf="isFinished&&!inProgress">
+    <ng-container *ngIf="ifOwner&&isFinished&&!inProgress">
         <div class="form-control">
             <h2>
                 This Task is already finished for {{task.hoursOfWork}} hours by {{task.takenByUser}}!
