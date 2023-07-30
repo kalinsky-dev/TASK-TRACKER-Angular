@@ -21,7 +21,7 @@ export class TaskComponent {
     this.router.navigate([`/tasks/${taskId}`])
   }
 
-  onDeleteClickHandler(e: Event, taskId: string) {
+  onDeleteClickHandler( taskId: string) {
     // console.log(taskId);
     this.router.navigate([`/tasks/${taskId}/delete`])
   }

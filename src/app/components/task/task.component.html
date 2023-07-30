@@ -7,7 +7,7 @@
         <fa-icon
             [icon]="faTimes"
             [ngStyle]="{'color':'red'}"
-            (click)="onDeleteClickHandler($event,task._id)"
+            (click)="onDeleteClickHandler(task._id)"
         ></fa-icon>
     </h3>
     <h3 *ngIf="task.isFinished==false">{{task.name}}</h3>
