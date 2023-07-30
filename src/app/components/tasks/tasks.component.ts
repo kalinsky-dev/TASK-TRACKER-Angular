@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/types/Task';
-import { TASKS } from 'src/app/mock-tasks';
+// import { TASKS } from 'src/app/mock-tasks';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -18,5 +18,9 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
     this.taskService.getAll()
       .subscribe((tasksArr) => { this.tasks = tasksArr })
+  }
+
+  sortHandler() {
+    console.log('Sort');
   }
 }
