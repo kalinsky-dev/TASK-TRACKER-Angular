@@ -1,21 +1,24 @@
-<ng-container *ngIf="tasks.length>0">
-    <button
-        *ngIf="tasks.length>1"
-        class="btn btn-block"
-        [style]="{backgroundColor:'steelblue'}"
-        (click)="sortHandler()"
-    >
-        Sort the Tasks by Working Hours ! 
-    </button>
-    <app-task
-        *ngFor="let task of tasks"
-        [task]="task"
-    >
-    </app-task>
-</ng-container>
-<ng-container *ngIf="tasks.length==0">
-    <div>
-        <h2>You haven't created a Task yet!</h2>
-        <h2>Try it now...</h2>
-    </div>
+<ng-container *ngIf="tasks">
+    <ng-container *ngIf="tasks.length>0">
+        <button
+            *ngIf="tasks.length>1"
+            class="btn btn-block"
+            [style]="{backgroundColor:'steelblue'}"
+            (click)="sortHandler()"
+        >
+            Sort the Tasks by Working Hours !
+        </button>
+        <app-task
+            *ngFor="let task of tasks"
+            [task]="task"
+            [user]="user"
+        >
+        </app-task>
+    </ng-container>
+    <ng-container *ngIf="tasks.length==0">
+        <div>
+            <h2>You haven't created a Task yet!</h2>
+            <h2>Try it now...</h2>
+        </div>
+    </ng-container>
 </ng-container>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/types/Task';
 // import { TASKS } from 'src/app/mock-tasks';
 import { TaskService } from 'src/app/services/task.service';
+import { User } from 'src/app/types/User';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-tasks',
@@ -12,12 +14,14 @@ import { TaskService } from 'src/app/services/task.service';
 export class TasksComponent implements OnInit {
 
   tasks: Task[] = [];
+  user!: User;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.user = this.userService.user!;
     this.taskService.getAll()
-      .subscribe((tasksArr) => { this.tasks = tasksArr })
+      .subscribe((tasksArr) => { this.tasks = tasksArr });
   }
 
   sortHandler() {
