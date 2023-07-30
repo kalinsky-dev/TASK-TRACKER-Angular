@@ -2,15 +2,15 @@
     class="task"
     (dblclick)="onTaskClickHandler(task._id)"
 >
-    <h3 *ngIf="task.isFinished==true">
+    <h3>
         {{task.name}}
         <fa-icon
+            *ngIf="ifOwner&&task.isFinished"
             [icon]="faTimes"
             [ngStyle]="{'color':'red'}"
             (click)="onDeleteClickHandler(task._id)"
         ></fa-icon>
     </h3>
-    <h3 *ngIf="task.isFinished==false">{{task.name}}</h3>
     <p>Description: {{task.description}}</p>
     <p>Task is created by: {{task.owner}}</p>
     <p *ngIf="task.takenByUser==false">This task is not taken yet!</p>
