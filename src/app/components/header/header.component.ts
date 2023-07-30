@@ -26,10 +26,6 @@ export class HeaderComponent {
     return this.router.url == route;
   }
 
-  sortHandler() {
-    console.log('Sort Tasks');
-  }
-
   logout(): void {
     // this.userService.logout();
     // this.router.navigate(['/']);
