@@ -1,7 +1,12 @@
-<div>
-  <h3>Oooops... Something went wrong....</h3>
-  <h3>Sit back, relax and try again later</h3>
-  <h3>:)</h3>
-  <a routerLink="/">Go Back</a>
+<div *ngIf="user">
+    <h3>Oooops... Something went wrong....</h3>
+    <h3>Sit back, relax and try again later</h3>
+    <h3>:)</h3>
+    <a routerLink="/tasks">Go Back</a>
 </div>
-
+<div *ngIf="!user">
+    <h3>Oooops... Something went wrong....</h3>
+    <h3>Sit back, relax and try again later</h3>
+    <h3>:)</h3>
+    <a routerLink="/">Go Back</a>
+</div>
