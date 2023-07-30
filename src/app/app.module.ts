@@ -12,7 +12,6 @@ import { TaskComponent } from './components/task/task.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LogoutComponent } from './components/logout/logout.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { HomeComponent } from './components/home/home.component';
@@ -32,7 +31,6 @@ import { appInterceptorProvider } from './app.interceptor';
     TasksComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent,
     AddTaskComponent,
     TaskDetailsComponent,
     HomeComponent,
