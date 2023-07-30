@@ -21,6 +21,25 @@ export class TasksComponent implements OnInit {
   }
 
   sortHandler() {
-    console.log('Sort');
+    // console.log('Sort');
+    const hasFinishedTask = this.tasks.find(x => x.hoursOfWork !== 0)
+
+    if (!hasFinishedTask) {
+      return;
+    } else {
+      sortedTasks: [];
+
+      let sortedTasks = this.tasks.sort((a: Task, b: Task): number => {
+        if (a.hoursOfWork === Number(0)) {
+          return 1;
+        };
+        if (b.hoursOfWork === Number(0)) {
+          return -1;
+        };
+        return Number(a.hoursOfWork) - Number(b.hoursOfWork);
+      });
+      // Return different ref form the tasks array
+      this.tasks = sortedTasks;
+    }
   }
 }
