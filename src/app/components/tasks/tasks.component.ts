@@ -27,8 +27,6 @@ export class TasksComponent implements OnInit {
     if (!hasFinishedTask) {
       return;
     } else {
-      sortedTasks: [];
-
       let sortedTasks = this.tasks.sort((a: Task, b: Task): number => {
         if (a.hoursOfWork === Number(0)) {
           return 1;
