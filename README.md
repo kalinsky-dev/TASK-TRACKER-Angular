@@ -68,6 +68,9 @@ Be careful to run the server from the backend server folder in a separate termin
 
 ## Code scaffolding
 
+```
+ng generate component component-name
+```
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
