@@ -11,6 +11,7 @@ import { TaskDeleteComponent } from './components/task-delete/task-delete.compon
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthActivate } from './guards/auth.activate';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,9 @@ const routes: Routes = [
   },
   {
     path: 'about', component: AboutComponent
+  },
+  {
+    path: 'error', component: ErrorComponent
   },
   {
     path: '**', component: NotFoundComponent
