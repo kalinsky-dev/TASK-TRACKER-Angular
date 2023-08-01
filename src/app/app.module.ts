@@ -21,6 +21,7 @@ import { TaskDeleteComponent } from './components/task-delete/task-delete.compon
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { appInterceptorProvider } from './app.interceptor';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { appInterceptorProvider } from './app.interceptor';
     FooterComponent,
     TaskDeleteComponent,
     NotFoundComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
