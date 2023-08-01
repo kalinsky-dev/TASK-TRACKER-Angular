@@ -3,6 +3,7 @@ import { Injectable, Provider } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, catchError } from "rxjs";
 import { environment } from "src/environments/environment.development";
+import { ErrorService } from "./components/error/error.service";
 
 
 const { baseUrl } = environment;
@@ -10,7 +11,7 @@ const { baseUrl } = environment;
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private errorService: ErrorService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -40,6 +41,8 @@ export class AppInterceptor implements HttpInterceptor {
         }
         else {
           //Todo: Implement the Error Service!
+          this.errorService.setError(err);
+          this.router.navigate(['/error']);
         }
         return [err];
       })
