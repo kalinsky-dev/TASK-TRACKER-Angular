@@ -3,7 +3,7 @@ import { Injectable, Provider } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, catchError } from "rxjs";
 import { environment } from "src/environments/environment.development";
-import { ErrorService } from "./components/error/error.service";
+import { ErrorService } from "../components/error/error.service";
 
 
 const { baseUrl } = environment;

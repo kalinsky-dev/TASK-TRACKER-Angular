@@ -20,7 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TaskDeleteComponent } from './components/task-delete/task-delete.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
-import { appInterceptorProvider } from './app.interceptor';
+import { appInterceptorProvider } from './services/app.interceptor';
 import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
