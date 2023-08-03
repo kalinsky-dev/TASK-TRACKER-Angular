@@ -22,6 +22,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { appInterceptorProvider } from './services/app.interceptor';
 import { ErrorComponent } from './components/error/error.component';
+import { EmailDirective } from './validators/email.directive';
+import { MaxCountDirective } from './validators/max-count.directive';
+import { MinCountDirective } from './validators/min-count.directive';
+import { MustMatchDirective } from './validators/must-match.directive';
+import { TaskDirective } from './validators/task.directive';
+import { HoursDirective } from './validators/hours.directive';
 
 @NgModule({
   declarations: [
@@ -40,6 +46,12 @@ import { ErrorComponent } from './components/error/error.component';
     TaskDeleteComponent,
     NotFoundComponent,
     ErrorComponent,
+    EmailDirective,
+    MaxCountDirective,
+    MinCountDirective,
+    MustMatchDirective,
+    TaskDirective,
+    HoursDirective,
   ],
   imports: [
     BrowserModule,
