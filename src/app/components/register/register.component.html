@@ -1,7 +1,8 @@
 <form
     class="add-form"
-    #registerForm="ngForm"
     (ngSubmit)="registerSubmitHandler()"
+    [appMustMatch]="['password', 'rePass']"
+    #registerForm="ngForm"
 >
     <!-- EMAIL -->
     <div class="form-control">
@@ -12,15 +13,26 @@
             name="email"
             placeholder="Add Email"
             ngModel
-            email
             required
+            appEmail
             #inputEmail="ngModel"
         >
         <!-- email error msg -->
-        <!-- <div *ngIf="inputEmail.touched">
-            <div *ngIf="inputEmail.errors?.['required']">Email is required!</div>
-            <div *ngIf="inputEmail.errors?.['email']">Invalid EMAIL!</div>
-        </div> -->
+        <div *ngIf="inputEmail.touched">
+            <div
+                class="error"
+                *ngIf="inputEmail.errors?.['required']"
+            >
+                Email is required!
+            </div>
+            <div
+                class="error"
+                *ngIf="inputEmail.errors?.['emailValidator']"
+            >
+                The email should be in the following format (mailboxname @ domainname.domainextension) !
+            </div>
+        </div>
+        <!-- {{inputEmail?.errors|json}} -->
 
         <!-- PASSWORD -->
         <label for="password">Password:</label>
@@ -30,13 +42,35 @@
             name="password"
             placeholder="Add Password"
             ngModel
+            required
+            [appMinCount]="4"
+            [appMaxCount]="10"
             #inputPassword="ngModel"
         >
         <!-- password error msg -->
-        <!-- <div *ngIf="inputPassword.errors?.['appMaxCount']">
-            Invalid Password, because length is longer than
-            {{ inputPassword.errors?.['appMaxCount'] }} ...
-        </div> -->
+        <div *ngIf="inputPassword.touched">
+            <div
+                class="error"
+                *ngIf="inputPassword.errors?.['required']"
+            >
+                Password is required!
+            </div>
+            <div
+                class="error"
+                *ngIf="inputPassword.errors?.['appMinCount']"
+            >
+                Invalid Password, because length is shorter than
+          {{ inputPassword.errors?.['appMinCount'] }} ...
+            </div>
+            <div
+                class="error"
+                *ngIf="inputPassword.errors?.['appMaxCount']"
+            >
+                Invalid Password, because length is longer than
+          {{ inputPassword.errors?.['appMaxCount'] }} ...
+            </div>
+        </div>
+        <!-- {{inputPassword?.errors|json}} -->
 
         <!-- Repeat PASSWORD -->
         <label for="rePass">Confirm Password:</label>
@@ -49,10 +83,15 @@
             #inputRePass="ngModel"
         >
         <!-- RePassword error msg -->
-        <!-- <div *ngIf="inputRePass.errors?.['appMaxCount']">
-            Invalid Password, because length is longer than
-            {{ inputRePass.errors?.['appMaxCount'] }} ...
-        </div> -->
+        <div *ngIf="inputRePass.touched">
+            <div
+                class="error"
+                *ngIf="inputRePass.errors?.['mustMatch']"
+            >
+                Passwords must match!
+            </div>
+        </div>
+        <!-- {{inputRePass?.errors|json}} -->
     </div>
     <button
         class="btn"
@@ -65,5 +104,5 @@
         <a routerLink="/login">here.</a>
     </span>
 </form>
-{{ registerForm.value | json }}
-Invalid Form: {{ registerForm.invalid | json }}
+<!-- {{ registerForm.value | json }}
+Invalid Form: {{ registerForm.invalid | json }} -->
