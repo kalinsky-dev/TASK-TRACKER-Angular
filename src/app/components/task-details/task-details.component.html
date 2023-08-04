@@ -35,13 +35,24 @@
                     name="taskName"
                     [ngModel]="name"
                     required
+                    appTask
                     #inputName="ngModel"
                 >
                 <!-- name error msg -->
-                <!-- <div *ngIf="inputName.touched">
-                    <div *ngIf="inputName.errors?.['required']">Name is required!</div>
-                    <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
-                </div> -->
+                <div *ngIf="inputName.touched">
+                    <div
+                        class="error"
+                        *ngIf="inputName.errors?.['required']"
+                    >
+                        Task Name is required!
+                    </div>
+                    <div
+                        class="error"
+                        *ngIf="inputName.errors?.['taskValidator']"
+                    >
+                        Please write a valid Task Name!
+                    </div>
+                </div>
 
                 <!-- TASK Description -->
                 <label for="taskDescr">Description of the Task:</label>
@@ -51,32 +62,34 @@
                     name="taskDescr"
                     [ngModel]="description"
                     required
+                    appTask
                     #inputDescr="ngModel"
                 >
                 <!-- description error msg -->
-                <!-- <div *ngIf="inputDescr.errors?.['appMaxCount']">
-                    Invalid Description, because length is longer than
-                    {{ inputDescr.errors?.['appMaxCount'] }} ...
-                </div> -->
+                <div *ngIf="inputDescr.touched">
+                    <div
+                        class="error"
+                        *ngIf="inputDescr.errors?.['required']"
+                    >
+                        Task Description is required!
+                    </div>
+                    <div
+                        class="error"
+                        *ngIf="inputDescr.errors?.['taskValidator']"
+                    >
+                        Please write a valid Task Description!
+                    </div>
+                </div>
             </div>
             <button
-                *ngIf="!inProgress"
                 class="btn"
                 [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
                 (click)="takeItHandler()"
             >
                 Take it
             </button>
+
             <button
-                *ngIf="inProgress"
-                class="btn"
-                [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
-                (click)="finishItHandler()"
-            >
-                Finish
-            </button>
-            <button
-                *ngIf="!inProgress"
                 class="btn"
                 [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
                 (click)="editHandler()"
@@ -85,7 +98,6 @@
             </button>
             <a routerLink="/tasks/{{idToEdit}}/delete">
                 <button
-                    *ngIf="!inProgress"
                     class="btn"
                     [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
                 >
@@ -111,11 +123,6 @@
                     required
                     #inputName="ngModel"
                 >
-                <!-- name error msg -->
-                <!-- <div *ngIf="inputName.touched">
-                    <div *ngIf="inputName.errors?.['required']">Name is required!</div>
-                    <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
-                </div> -->
 
                 <!-- TASK Description -->
                 <label for="taskDescr">Description of the Task:</label>
@@ -128,11 +135,6 @@
                     required
                     #inputDescr="ngModel"
                 >
-                <!-- description error msg -->
-                <!-- <div *ngIf="inputDescr.errors?.['appMaxCount']">
-                    Invalid Description, because length is longer than
-                     {{ inputDescr.errors?.['appMaxCount'] }} ...
-                </div> -->
 
                 <!-- Working Hours for the Task -->
                 <label for="hoursToWork">Working hours for the Task:</label>
@@ -144,37 +146,32 @@
                     disabled="false"
                     ngModel
                     required
+                    appHours
                     #inputHours="ngModel"
                 >
                 <!-- description error msg -->
-                <!-- <div *ngIf="inputHours.errors?.['appMaxCount']">
-                    Invalid Description, because length is longer than
-                    {{ inputHours.errors?.['appMaxCount'] }} ...
-                </div> -->
+                <div *ngIf="inputHours.touched">
+                    <div
+                        class="error"
+                        *ngIf="inputHours.errors?.['required']"
+                    >
+                        Working Hours are required!
+                    </div>
+                    <div
+                        class="error"
+                        *ngIf="inputHours.errors?.['hoursValidator']"
+                    >
+                        Please write valid Working Hours!
+                    </div>
+                </div>
             </div>
+
             <button
-                *ngIf="!inProgress"
-                class="btn"
-                [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
-                (click)="takeItHandler()"
-            >
-                Take it
-            </button>
-            <button
-                *ngIf="inProgress"
                 class="btn"
                 [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
                 (click)="finishItHandler()"
             >
                 Finish
-            </button>
-            <button
-                *ngIf="!inProgress"
-                class="btn"
-                [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
-                (click)="editHandler()"
-            >
-                Edit
             </button>
             <a routerLink="/tasks/{{idToEdit}}/delete">
                 <button
