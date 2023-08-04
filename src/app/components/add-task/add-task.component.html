@@ -13,13 +13,24 @@
             placeholder="Add Task"
             ngModel
             required
+            appTask
             #inputName="ngModel"
         >
         <!-- name error msg -->
-        <!-- <div *ngIf="inputName.touched">
-            <div *ngIf="inputName.errors?.['required']">Name is required!</div>
-            <div *ngIf="inputName.errors?.['name']">Invalid Name!</div>
-        </div> -->
+        <div *ngIf="inputName.touched">
+            <div
+                class="error"
+                *ngIf="inputName.errors?.['required']"
+            >
+                Task Name is required!
+            </div>
+            <div
+                class="error"
+                *ngIf="inputName.errors?.['taskValidator']"
+            >
+                Please write a valid Task Name!
+            </div>
+        </div>
 
         <!-- TASK Description -->
         <label for="taskDescr">Description of the Task:</label>
@@ -30,9 +41,24 @@
             placeholder="Add Description"
             ngModel
             required
+            appTask
             #inputDescr="ngModel"
         >
         <!-- description error msg -->
+        <div *ngIf="inputDescr.touched">
+            <div
+                class="error"
+                *ngIf="inputDescr.errors?.['required']"
+            >
+                Task Description is required!
+            </div>
+            <div
+                class="error"
+                *ngIf="inputDescr.errors?.['taskValidator']"
+            >
+                Please write a valid Task Description!
+            </div>
+        </div>
         <!-- <div *ngIf="inputDescr.errors?.['appMaxCount']">
             Invalid Description, because length is longer than
             {{ inputDescr.errors?.['appMaxCount'] }} ...
