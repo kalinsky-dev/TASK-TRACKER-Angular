@@ -12,16 +12,26 @@
             name="email"
             placeholder="Add Email"
             ngModel
-            email
             required
+            appEmail
             #inputEmail="ngModel"
         >
         <!-- email error msg -->
-        <!-- <div *ngIf="inputEmail.touched">
-            <div *ngIf="inputEmail.errors?.['required']">Email is required!</div>
-            <div *ngIf="inputEmail.errors?.['email']">Invalid EMAIL!</div>
-        </div> -->
-
+        <div *ngIf="inputEmail.touched">
+            <div
+                class="error"
+                *ngIf="inputEmail.errors?.['required']"
+            >
+                Email is required!
+            </div>
+            <div
+                class="error"
+                *ngIf="inputEmail.errors?.['emailValidator']"
+            >
+                The email should be in the following format (mailboxname @ domainname.domainextension) !
+            </div>
+        </div>
+        <!-- {{inputEmail?.errors|json}} -->
         <!-- PASSWORD -->
         <label for="password">Password:</label>
         <input
@@ -30,13 +40,35 @@
             name="password"
             placeholder="Add Password"
             ngModel
+            required
+            [appMinCount]="4"
+            [appMaxCount]="10"
             #inputPassword="ngModel"
         >
         <!-- password error msg -->
-        <!-- <div *ngIf="inputPassword.errors?.['appMaxCount']">
-            Invalid Password, because length is longer than
+        <div *ngIf="inputPassword.touched">
+            <div
+                class="error"
+                *ngIf="inputPassword.errors?.['required']"
+            >
+                Password is required!
+            </div>
+            <div
+                class="error"
+                *ngIf="inputPassword.errors?.['appMinCount']"
+            >
+                Invalid Password, because length is shorter than
+            {{ inputPassword.errors?.['appMinCount'] }} ...
+            </div>
+            <div
+                class="error"
+                *ngIf="inputPassword.errors?.['appMaxCount']"
+            >
+                Invalid Password, because length is longer than
             {{ inputPassword.errors?.['appMaxCount'] }} ...
-        </div> -->
+            </div>
+        </div>
+        <!-- {{inputPassword?.errors|json}} -->
     </div>
     <button
         class="btn"
@@ -49,5 +81,5 @@
         <a routerLink="/register">here.</a>
     </span>
 </form>
-{{ loginForm.value | json }}
-Invalid Form: {{ loginForm.invalid | json }}
+<!-- {{ loginForm.value | json }}
+Invalid Form: {{ loginForm.invalid | json }} -->
