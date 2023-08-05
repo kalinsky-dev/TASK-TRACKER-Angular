@@ -18,6 +18,10 @@
   font-size: 17px;
 }
 
+.btnWhenFormValid:active {
+  transform: scale(0.98);
+}
+
 div.error {
   color: red;
 }

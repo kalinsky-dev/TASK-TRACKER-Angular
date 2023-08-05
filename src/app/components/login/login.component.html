@@ -73,6 +73,7 @@
     <button
         class="btn"
         [style]="{backgroundColor:loginForm.invalid?'gray':'green'}"
+        [class.btnWhenFormValid]="loginForm.invalid==false"
     >
         Log In
     </button>
