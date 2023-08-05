@@ -4,6 +4,7 @@
             *ngIf="tasks.length>1"
             class="btn btn-block"
             [style]="{backgroundColor:'steelblue'}"
+            [class.btnWhenFormValid]="true"
             (click)="sortHandler()"
         >
             Sort the Tasks by Working Hours !
