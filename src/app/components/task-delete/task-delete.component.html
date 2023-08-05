@@ -4,11 +4,17 @@
     </h2>
 </div>
 <a routerLink="/tasks">
-    <button class="btn">Back</button>
+    <button
+        class="btn"
+        [class.btnWhenFormValid]="true"
+    >
+        Back
+    </button>
 </a>
 
 <button
     class="btn"
+    [class.btnWhenFormValid]="true"
     [ngStyle]="{'background-color':'red'}"
     (click)="onDeleteHandler()"
 >

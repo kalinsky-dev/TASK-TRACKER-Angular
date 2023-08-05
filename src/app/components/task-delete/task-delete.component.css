@@ -1,3 +1,7 @@
 .form-control {
   margin: 20px 0;
 }
+
+.btnWhenFormValid:active {
+  transform: scale(0.98);
+}
