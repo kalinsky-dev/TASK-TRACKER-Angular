@@ -63,6 +63,7 @@
     <button
         class="btn btn-block"
         [style]="{backgroundColor:addTaskForm.invalid?'gray':'green'}"
+        [class.btnWhenFormValid]="addTaskForm.invalid==false"
     >
         Save Task
     </button>
