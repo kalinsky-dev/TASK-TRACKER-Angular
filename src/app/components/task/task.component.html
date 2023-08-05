@@ -7,7 +7,7 @@
         <fa-icon
             *ngIf="ifOwner&&task.isFinished"
             [icon]="faTimes"
-            [ngStyle]="{'color':'red'}"
+            [styles]="{'color':'red',transform: 'scale(0.98)'}"
             (click)="onDeleteClickHandler(task._id)"
         ></fa-icon>
     </h3>
