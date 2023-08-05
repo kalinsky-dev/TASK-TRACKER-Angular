@@ -96,6 +96,7 @@
     <button
         class="btn"
         [style]="{backgroundColor:registerForm.invalid?'gray':'green'}"
+        [class.btnWhenFormValid]="registerForm.invalid==false"
     >
         Register
     </button>
