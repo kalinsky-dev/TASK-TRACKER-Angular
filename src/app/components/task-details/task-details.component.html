@@ -84,6 +84,7 @@
             <button
                 class="btn"
                 [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+                [class.btnWhenFormValid]="editTaskForm.invalid==false"
                 (click)="takeItHandler()"
             >
                 Take it
@@ -92,6 +93,7 @@
             <button
                 class="btn"
                 [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+                [class.btnWhenFormValid]="editTaskForm.invalid==false"
                 (click)="editHandler()"
             >
                 Edit
@@ -100,6 +102,7 @@
                 <button
                     class="btn"
                     [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+                    [class.btnWhenFormValid]="editTaskForm.invalid==false"
                 >
                     Delete
                 </button>
@@ -169,6 +172,7 @@
             <button
                 class="btn"
                 [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+                [class.btnWhenFormValid]="editTaskForm.invalid==false"
                 (click)="finishItHandler()"
             >
                 Finish
@@ -177,7 +181,7 @@
                 <button
                     *ngIf="!inProgress"
                     class="btn"
-                    [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
+                    [class.btnWhenFormValid]="editTaskForm.invalid==false"
                 >
                     Delete
                 </button>
@@ -194,6 +198,7 @@
                 <button
                     class="btn btn-block"
                     [style]="{backgroundColor:'red'}"
+                    [class.btnWhenFormValid]="true"
                 >
                     Delete
                 </button>
