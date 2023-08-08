@@ -98,7 +98,10 @@
             >
                 Edit
             </button>
-            <a routerLink="/tasks/{{idToEdit}}/delete">
+            <a
+                *ngIf="editTaskForm.invalid==false"
+                routerLink="/tasks/{{idToEdit}}/delete"
+            >
                 <button
                     class="btn"
                     [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"
@@ -107,6 +110,13 @@
                     Delete
                 </button>
             </a>
+            <button
+                class="btn"
+                *ngIf="editTaskForm.invalid==true"
+                [style]="{backgroundColor:editTaskForm.invalid?'gray':'green'}"        
+            >
+                Delete
+            </button>
         </form>
 
         <form
@@ -177,15 +187,6 @@
             >
                 Finish
             </button>
-            <a routerLink="/tasks/{{idToEdit}}/delete">
-                <button
-                    *ngIf="!inProgress"
-                    class="btn"
-                    [class.btnWhenFormValid]="editTaskForm.invalid==false"
-                >
-                    Delete
-                </button>
-            </a>
         </form>
     </ng-container>
 
