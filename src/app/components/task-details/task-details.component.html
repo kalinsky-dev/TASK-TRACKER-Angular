@@ -24,11 +24,13 @@
     </ng-container>
 
     <ng-container *ngIf="ifOwner&&!isFinished">
+
         <form
             *ngIf="!inProgress"
             class="add-form"
             #editTaskForm="ngForm"
         >
+            <h2>You can take,edit or delete the Task.</h2>
             <!-- TASK Name -->
             <div class="form-control">
                 <label for="taskName">Name of the Task:</label>
@@ -127,6 +129,7 @@
             class="add-form"
             #editTaskForm="ngForm"
         >
+        <h2>Add your time and finish the Task.</h2>
             <!-- TASK Name -->
             <div class="form-control">
                 <label for="taskName">Name of the Task:</label>
