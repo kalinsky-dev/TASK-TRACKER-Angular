@@ -13,10 +13,28 @@
     </h3>
     <p>Description: {{task.description}}</p>
     <p>Task is created by: {{task.owner}}</p>
-    <p *ngIf="task.takenByUser==false">This task is not taken yet!</p>
-    <p *ngIf="task.takenByUser!=false">Task is taken by: {{task.takenByUser}}</p>
-    <p *ngIf="task.inProgress==true">Task is in progress!</p>
-    <p *ngIf="task.isFinished==true">
+    <p
+        *ngIf="task.takenByUser==false"
+        [style]="{color:'red'}"
+    >
+        This task is not taken yet!
+    </p>
+    <p
+        *ngIf="task.takenByUser!=false"
+        [style]="{color:'red'}"
+    >
+        Task is taken by: {{task.takenByUser}}
+    </p>
+    <p
+        *ngIf="task.inProgress==true"
+        [style]="{color:'red'}"
+    >
+        Task is in progress!
+    </p>
+    <p
+        *ngIf="task.isFinished==true"
+        [style]="{color:'red'}"
+    >
         Task is resolved for: {{task.hoursOfWork}} hours.
     </p>
 </div>
