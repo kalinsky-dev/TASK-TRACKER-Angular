@@ -65,6 +65,7 @@ cd server && node server.js
 ```
 Runs the server. 
 Be careful to run the server from the backend server folder in a separate terminal.
+<br>You can find more details on the: <a href="https://github.com/softuni-practice-server/softuni-practice-server/blob/master/README.md">GitHub repository of the service.</a> 
 
 ## Code scaffolding
 
