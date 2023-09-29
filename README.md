@@ -45,7 +45,7 @@ Once authenticated a user can Create, Read, Update, Take/Finish, Delete and Sort
 - Front-end built with Angular
 - Softuni-Pracite-Server for authentication and data storage
 - Typescript
-- rxjs
+- RxJS
 - HTML & CSS
 - Deploy in Firebese: https://angular-task-tracker-ddf70.web.app/
 
